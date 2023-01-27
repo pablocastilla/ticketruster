@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deploy
+  labels:
+    name: api-deploy
+    app: ticketruster-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: api-pod
+      app: ticketruster-api
+  template:
+    metadata:
+      name: api-pod
+      labels:
+        name: api-pod
+        app: ticketruster-api
+    spec:
+      containers:
+      - name: web
+        image: ticketruster
+        imagePullPolicy: Never
+        ports:
+          - name: web
+            containerPort: 8080
+            protocol: TCP

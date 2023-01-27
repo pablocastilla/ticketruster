@@ -6,7 +6,7 @@ metadata:
     app: balancer
 spec:
   selector:
-    app: ticketruster
+    app: ticketruster-api
   ports:
     - port: 8081
       targetPort: 8080
